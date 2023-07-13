@@ -1,2 +1,3 @@
 imagePullSecrets:
+  - name: harbor-swarm-registry-secret
   - name: harbor-registry-secret
