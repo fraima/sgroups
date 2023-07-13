@@ -7,6 +7,8 @@ image:
   tag: {{.Helm.Release.Tag}}
   pullPolicy: IfNotPresent
 
+args:
+  - --config=/config/config.yaml
 
 ports:
   - name: grpc
@@ -34,7 +36,7 @@ ingress:
 
 config:
   files:
-    config:
+    config.yaml:
       data: |-
         ---
         logger:
