@@ -11,7 +11,7 @@ image:
 ports:
   - name: grpc
     containerPort: 9000
-    protocol: grpc
+    protocol: TCP
 
 ingress:
   enabled: true
