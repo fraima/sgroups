@@ -7,8 +7,16 @@ image:
   tag: {{.Helm.Release.Tag}}
   pullPolicy: IfNotPresent
 
+command:
+  - /app/to-nft
+
 args:
-  - --config=/config/config.yaml
+  - --config
+  - /config/config.yaml
+
+securityContext:
+  privileged: true
+  runAsUser: 0
 
 config:
   files:
@@ -28,6 +36,6 @@ config:
               # sgroups service dial duration [optional]
               dial-duration: 3s
               # service address [mandatory]
-              address: tcp://{{ .Helm.Release.Namespace }}-ingress-controller.{{ .Helm.Release.Namespace }}.svc.{{ .Helm.Release.Cluster }}:80
+              address: tcp://sgroups:80
               # interval(duration) backend sync-status check [mandatory]
               check-sync-status: 15s

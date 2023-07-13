@@ -7,8 +7,13 @@ image:
   tag: {{.Helm.Release.Tag}}
   pullPolicy: IfNotPresent
 
+command:
+  - /app/sgroups
+
 args:
-  - --config=/config/config.yaml
+  - --config
+  - /config/config.yaml
+
 
 ports:
   - name: grpc
