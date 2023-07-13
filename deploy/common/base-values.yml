@@ -34,8 +34,8 @@ ingress:
 
 config:
   files:
-    data:
-      config: |-
+    config:
+      data: |-
         ---
         logger:
             # log level
