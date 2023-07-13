@@ -14,9 +14,10 @@ args:
   - --config
   - /config/config.yaml
 
-securityContext:
-  privileged: true
-  runAsUser: 0
+# TODO https://youtrack.wildberries.ru/issue/CID-1782/Dorabotka-Helm-Template
+# securityContext:
+#   privileged: true
+#   runAsUser: 0
 
 config:
   files:
