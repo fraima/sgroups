@@ -6,3 +6,21 @@ image:
   repository: {{.Helm.Release.Image}}
   tag: {{.Helm.Release.Tag}}
   pullPolicy: IfNotPresent
+
+
+ports:
+  - name: grpc
+    containerPort: 9000
+    protocol: grpc
+
+ingress:
+  enabled: true
+  objects:
+    - servicePort: grpc
+      annotations:
+        nginx.ingress.kubernetes.io/backend-protocol: "GRPC"
+        nginx.ingress.kubernetes.io/ssl-redirect: "true"
+
+      hosts:
+      - name: {{ .Helm.Release.Namespace }}-ingress-controller.{{ .Helm.Release.Namespace }}.svc.{{ .Helm.Release.Cluster }}
+        path: /
