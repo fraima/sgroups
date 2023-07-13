@@ -16,7 +16,7 @@ ARG WB_MIRROR
 # install updates and build executable
 RUN apk upgrade --no-cache -X $WB_MIRROR/alpine/v${ALPINE_VER}/main && \
     apk add make && \
-    make to-nft
+    make sg-service
 
 # second release stage
 FROM alpine:${ALPINE_VER}
