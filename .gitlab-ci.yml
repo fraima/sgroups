@@ -23,10 +23,10 @@ variables:
   # Helm chart name. List of chart can be found here https://gitlab.wildberries.ru/devops/helm/charts
   # common-deploy is default chart
   # common-job is additional chart, his version is specified using CI_TMPL_HELM_CHART_COMMON_JOB_VERSION
-  CI_TMPL_HELM_CHARTS: "common-deploy@v4.2.0,common-job"
+  CI_TMPL_HELM_CHARTS: "common-deploy@v4.2.0"
   # You can specify chart version using special variable
   # Setting common-job version to v1.0.1
-  CI_TMPL_HELM_CHART_COMMON_JOB_VERSION: 1.0.1
+  # CI_TMPL_HELM_CHART_COMMON_JOB_VERSION: 1.0.1
   # list of services for build & deploy
   # go-tmpl, go-tmpl-2, go-tmpl-common will be deployed with common-deploy chart because this is default chart
   # go-tmpl-job will be deployed with common-job chart because of explicit chart definition using @ character
