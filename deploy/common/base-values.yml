@@ -13,10 +13,16 @@ ports:
     containerPort: 9000
     protocol: TCP
 
+service:
+  ports:
+    - port: 80
+      name: grpc
+      targetPort: 9000
+
 ingress:
   enabled: true
   objects:
-    - servicePort: 9000
+    - servicePort: 80
       annotations:
         nginx.ingress.kubernetes.io/backend-protocol: "GRPC"
         nginx.ingress.kubernetes.io/ssl-redirect: "true"
@@ -24,5 +30,3 @@ ingress:
       hosts:
       - name: {{ .Helm.Release.Namespace }}-ingress-controller.{{ .Helm.Release.Namespace }}.svc.{{ .Helm.Release.Cluster }}
         path: /
-
-
