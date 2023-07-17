@@ -50,8 +50,15 @@ variables:
   # Change deploy jobs appearance in pipeline
   CI_TMPL_DEPLOY_GROUPING: per-service
 
+
 include:
-  - {<<: *repo, file: /pipelines/go.yml}
+  - {<<: *repo, file: /pipelines/global.yml}
+  - {<<: *repo, file: /pipelines/checks.yml}
+  - {<<: *repo, file: /pipelines/go/global.yml}
+  - {<<: *repo, file: /pipelines/go/lint.yml}
+  - {<<: *repo, file: /pipelines/go/test.yml}
+  - {<<: *repo, file: /pipelines/docker/build.yml}
+  - {<<: *repo, file: /pipelines/helm/deploy.yml}
 
 stages:
   - checks
@@ -59,4 +66,5 @@ stages:
   - test
   - generate dynamic pipeline
   - build
+  - deploy
 
