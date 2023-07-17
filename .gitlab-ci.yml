@@ -52,3 +52,11 @@ variables:
 
 include:
   - {<<: *repo, file: /pipelines/go.yml}
+
+stages:
+  - checks
+  - lint
+  - test
+  - generate dynamic pipeline
+  - build
+
