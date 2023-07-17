@@ -30,11 +30,11 @@ variables:
   # list of services for build & deploy
   # go-tmpl, go-tmpl-2, go-tmpl-common will be deployed with common-deploy chart because this is default chart
   # go-tmpl-job will be deployed with common-job chart because of explicit chart definition using @ character
-  CI_TMPL_HELM_RELEASE_NAMES: "sgroups,to-nft"
+  CI_TMPL_HELM_RELEASE_NAMES: "sgroups"
   CI_TMPL_HELM_RELEASE_NAMESPACE: swarm
   # List of clusters for deploy
-  CI_TMPL_KUBE_CLUSTERS_DEV: "k8s.dldevel"
-  CI_TMPL_KUBE_CLUSTERS_STAGE: "k8s.stage-dp"
+  CI_TMPL_KUBE_CLUSTERS_DEV: ""
+  CI_TMPL_KUBE_CLUSTERS_STAGE: ""
   CI_TMPL_KUBE_CLUSTERS_PROD: "k8s.prod-dl,k8s.prod-dp"
 
   # Harbor project name
