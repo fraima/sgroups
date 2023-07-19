@@ -31,8 +31,6 @@ variables:
   # Change deploy jobs appearance in pipeline
   CI_TMPL_DEPLOY_GROUPING: per-service
 
-stages:
-  - testops
 
 include:
   - <<: *repo
@@ -65,7 +63,7 @@ deploy:
 treska:
   image:
     name: harbor.wildberries.ru/swarm/swarm/testops/hbf_api_tests/sgroups-postman:dev-825a1cb2
-  stage: testops
+  stage: deploy
   tags:
     - linux-docker-executor
   needs:
