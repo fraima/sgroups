@@ -72,8 +72,8 @@ include:
 
   - <<: *repo
     file: /helm/deploy.yml
-    rules:
-      - if: $CI_COMMIT_BRANCH =~ /^master$/
+    # rules:
+    #   - if: $CI_COMMIT_BRANCH =~ /^master$/
 
 stages:
   - checks
@@ -85,9 +85,12 @@ stages:
 
 generate build:
   variables:
+    CI_TMPL_HELM_RELEASE_NAMES: "sgroups,to-nft"
+
+generate deploy:
+  variables:
     CI_TMPL_HELM_RELEASE_NAMES: "sgroups"
 
-
-# build:
-#   rules:
-#     - if: $CI_COMMIT_BRANCH =~ /^master$/
+deploy:
+  rules:
+    - if: $CI_COMMIT_BRANCH =~ /^dev$/
