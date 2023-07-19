@@ -69,10 +69,9 @@ stages:
   - deploy
 
 build:
-  rules:
-    - if: $CI_COMMIT_BRANCH =~ /^dev$/
-      variables:
-        CI_TMPL_HELM_RELEASE_NAMES: "sgroups,to-nft"
+  variables:
+    CI_TMPL_HELM_RELEASE_NAMES: "sgroups,to-nft"
+
 
 deploy:
 
