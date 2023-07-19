@@ -33,7 +33,7 @@ variables:
   # CI_TMPL_HELM_RELEASE_NAMES: "to-nft"
   CI_TMPL_HELM_RELEASE_NAMESPACE: swarm
   # List of clusters for deploy
-  CI_TMPL_KUBE_CLUSTERS_DEV: ""
+  CI_TMPL_KUBE_CLUSTERS_DEV: "k8s.dldevel"
   CI_TMPL_KUBE_CLUSTERS_STAGE: ""
   CI_TMPL_KUBE_CLUSTERS_PROD: "k8s.prod-dl,k8s.prod-dp"
 
@@ -84,12 +84,16 @@ stages:
   - deploy
 
 generate build:
-  variables:
-    CI_TMPL_HELM_RELEASE_NAMES: "sgroups,to-nft"
+  rules:
+    - if: $CI_COMMIT_BRANCH =~ /^dev$/
+      variables:
+        CI_TMPL_HELM_RELEASE_NAMES: "sgroups,to-nft"
 
 generate deploy:
-  variables:
-    CI_TMPL_HELM_RELEASE_NAMES: "sgroups"
+  rules:
+    - if: $CI_COMMIT_BRANCH =~ /^dev$/
+      variables:
+        CI_TMPL_HELM_RELEASE_NAMES: "sgroups"
 
 deploy:
   rules:
