@@ -79,13 +79,10 @@ stages:
   - checks
   - lint
   - test
-  - generate dynamic pipeline
+  # - generate dynamic pipeline
   - build
   - deploy
 
-generate dynamic pipeline:
-  variables:
-    CI_TMPL_HELM_RELEASE_NAMES: "sgroups"
 
 
 # build:
