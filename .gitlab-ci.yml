@@ -80,9 +80,9 @@ deploy:
         CI_TMPL_ENVIRONMENT_NAME: prod
         CI_TMPL_HELM_RELEASE_NAMES: "sgroups"
 
-    - if: $CI_COMMIT_BRANCH =~ /^dev$/
-      variables:
-        CI_TMPL_ENVIRONMENT_NAME: dev
-        CI_TMPL_HELM_RELEASE_NAMES: "abathur"
+    # - if: $CI_COMMIT_BRANCH =~ /^dev$/
+    #   variables:
+    #     CI_TMPL_ENVIRONMENT_NAME: dev
+    #     CI_TMPL_HELM_RELEASE_NAMES: "abathur"
 
 
