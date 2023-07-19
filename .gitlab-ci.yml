@@ -62,9 +62,10 @@ deploy:
 stages:
   - postman
 
-postman:
+postman_a:
   stage: postman
-  image: harbor.wildberries.ru/swarm/swarm/testops/hbf_api_tests/sgroups-postman:dev-825a1cb2
+  image:
+    name: harbor.wildberries.ru/swarm/swarm/testops/hbf_api_tests/sgroups-postman:dev-825a1cb2
   needs:
     - deploy
   rules:
