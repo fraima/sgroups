@@ -6,3 +6,6 @@ image:
   repository: harbor.wildberries.ru/swarm/swarm/testops/hbf_api_tests/sgroups-postman
   tag: dev-825a1cb2
   pullPolicy: IfNotPresent
+
+env:
+  HBF_HOST: sgroups
