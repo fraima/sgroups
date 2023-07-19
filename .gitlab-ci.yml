@@ -63,6 +63,10 @@ treska:
   image:
     name: harbor.wildberries.ru/swarm/swarm/testops/hbf_api_tests/sgroups-postman:dev-825a1cb2
   stage: .post
+  tags:
+    - linux-docker-executor
+  needs:
+    - deploy
   script:
     - node
     - index.js
