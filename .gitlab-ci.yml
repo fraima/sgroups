@@ -57,7 +57,10 @@ include:
   - {<<: *repo, file: /go/global.yml}
   - {<<: *repo, file: /go/lint.yml}
   - {<<: *repo, file: /go/test.yml}
-  - {<<: *repo, file: /docker/build.yml}
+  - <<: *repo
+    file: /docker/build.yml
+    inputs:
+      CI_TMPL_HELM_RELEASE_NAMES: "sgroups"
   - {<<: *repo, file: /helm/deploy.yml}
 
 stages:
@@ -67,12 +70,6 @@ stages:
   - generate dynamic pipeline
   - build
   - deploy
-
-build:
-  variables:
-    CI_TMPL_HELM_RELEASE_NAMES: "sgroups,to-nft"
-    CI_TMPL_ENVIRONMENT_NAME: dev
-
 
 deploy:
 
