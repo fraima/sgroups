@@ -65,7 +65,7 @@ deploy:
 treska:
   image:
     name: harbor.wildberries.ru/swarm/swarm/testops/hbf_api_tests/sgroups-postman:dev-825a1cb2
-  stage: "test"
+  stage: ".post"
   script:
     - node
     - index.js
