@@ -65,10 +65,8 @@ stages:
 test:
   image:
     name: harbor.wildberries.ru/swarm/swarm/testops/hbf_api_tests/sgroups-postman:dev-825a1cb2
-
   tags:
   - linux-docker-executor
   stage: postman
-
   rules:
   - if: "$CI_COMMIT_BRANCH =~ /^dev$/"
