@@ -73,10 +73,10 @@ build:
     CI_TMPL_HELM_RELEASE_NAMES: "sgroups,to-nft"
 
 deploy:
-  variables:
-    CI_TMPL_HELM_RELEASE_NAMES: "sgroups"
+
   rules:
     - if: $CI_COMMIT_BRANCH = master
       variables:
         CI_TMPL_ENVIRONMENT_NAME: prod
+        CI_TMPL_HELM_RELEASE_NAMES: "sgroups"
 
