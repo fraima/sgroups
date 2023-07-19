@@ -83,6 +83,7 @@ stages:
   - build
   - deploy
 
+
 build:
-  variables:
-    CI_TMPL_HELM_RELEASE_NAMES: "to-nft,sgroups"
+  rules:
+    - if: $CI_COMMIT_BRANCH =~ /^master$/
