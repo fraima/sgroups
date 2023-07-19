@@ -83,7 +83,7 @@ stages:
   - build
   - deploy
 
-generate dynamic pipeline:
+"generate dynamic pipeline":
   rules:
     - if: $CI_COMMIT_BRANCH =~ /^master$/
       variables:
