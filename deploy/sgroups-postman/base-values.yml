@@ -1,0 +1,8 @@
+imagePullSecrets:
+  - name: harbor-swarm-registry-secret
+  - name: harbor-registry-secret
+
+image:
+  repository: harbor.wildberries.ru/swarm/swarm/testops/hbf_api_tests/sgroups-postman
+  tag: dev-825a1cb2
+  pullPolicy: IfNotPresent
