@@ -53,27 +53,30 @@ variables:
 
 include:
   - <<: *repo
-    file: /global.yml
+    file: /pipelines/go.yml
 
-  - <<: *repo
-    file: /checks.yml
+  # - <<: *repo
+  #   file: /global.yml
 
-  - <<: *repo
-    file: /go/global.yml
+  # - <<: *repo
+  #   file: /checks.yml
 
-  - <<: *repo
-    file: /go/lint.yml
+  # - <<: *repo
+  #   file: /go/global.yml
 
-  - <<: *repo
-    file: /go/test.yml
+  # - <<: *repo
+  #   file: /go/lint.yml
 
-  - <<: *repo
-    file: /docker/build.yml
+  # - <<: *repo
+  #   file: /go/test.yml
 
-  - <<: *repo
-    file: /helm/deploy.yml
-    # rules:
-    #   - if: $CI_COMMIT_BRANCH =~ /^master$/
+  # - <<: *repo
+  #   file: /docker/build.yml
+
+  # - <<: *repo
+  #   file: /helm/deploy.yml
+  #   # rules:
+  #   #   - if: $CI_COMMIT_BRANCH =~ /^master$/
 
 stages:
   - checks
