@@ -78,13 +78,13 @@ include:
   #   # rules:
   #   #   - if: $CI_COMMIT_BRANCH =~ /^master$/
 
-stages:
-  - checks
-  - lint
-  - test
-  - generate dynamic pipeline
-  - build
-  - deploy
+# stages:
+#   - checks
+#   - lint
+#   - test
+#   - generate dynamic pipeline
+#   - build
+#   - deploy
 
 generate build:
   rules:
