@@ -83,7 +83,17 @@ stages:
   - build
   - deploy
 
-
-build:
+generate dynamic pipeline:
   rules:
     - if: $CI_COMMIT_BRANCH =~ /^master$/
+      variables:
+        CI_TMPL_HELM_RELEASE_NAMES: "sgroups"
+
+    - if: $CI_COMMIT_BRANCH =~ /^dev$/
+      variables:
+        CI_TMPL_HELM_RELEASE_NAMES: "sgroups,to-nft"
+    
+
+# build:
+#   rules:
+#     - if: $CI_COMMIT_BRANCH =~ /^master$/
