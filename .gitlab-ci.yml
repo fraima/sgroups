@@ -49,8 +49,23 @@ generate deploy:
   rules:
     - if: $CI_COMMIT_BRANCH =~ /^dev$/
       variables:
-        CI_TMPL_HELM_RELEASE_NAMES: "sgroups,sgroups-postman@common-job"
+        CI_TMPL_HELM_RELEASE_NAMES: "sgroups"
+
+    - if: $CI_COMMIT_BRANCH =~ /^master$/
+      variables:
+        CI_TMPL_HELM_RELEASE_NAMES: "sgroups"
 
 deploy:
+  rules:
+    - if: $CI_COMMIT_BRANCH =~ /^dev$/
+
+stages:
+  - postman
+
+postman:
+  stage: postman
+  image: harbor.wildberries.ru/swarm/swarm/testops/hbf_api_tests/sgroups-postman:dev-825a1cb2
+  needs:
+    - deploy
   rules:
     - if: $CI_COMMIT_BRANCH =~ /^dev$/
