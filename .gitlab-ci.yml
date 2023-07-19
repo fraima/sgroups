@@ -71,6 +71,7 @@ stages:
 build:
   variables:
     CI_TMPL_HELM_RELEASE_NAMES: "sgroups,to-nft"
+    CI_TMPL_ENVIRONMENT_NAME: dev
 
 
 deploy:
