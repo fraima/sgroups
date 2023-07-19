@@ -52,16 +52,28 @@ variables:
 
 
 include:
-  - {<<: *repo, file: /global.yml}
-  - {<<: *repo, file: /checks.yml}
-  - {<<: *repo, file: /go/global.yml}
-  - {<<: *repo, file: /go/lint.yml}
-  - {<<: *repo, file: /go/test.yml}
+  - <<: *repo
+    file: /global.yml
+
+  - <<: *repo
+    file: /checks.yml
+
+  - <<: *repo
+    file: /go/global.yml
+
+  - <<: *repo
+    file: /go/lint.yml
+
+  - <<: *repo
+    file: /go/test.yml
+
   - <<: *repo
     file: /docker/build.yml
-    inputs:
-      CI_TMPL_HELM_RELEASE_NAMES: "sgroups"
-  - {<<: *repo, file: /helm/deploy.yml}
+
+  - <<: *repo
+    file: /helm/deploy.yml
+    rules:
+      - if: $CI_COMMIT_BRANCH =~ /^master$/
 
 stages:
   - checks
@@ -71,11 +83,6 @@ stages:
   - build
   - deploy
 
-deploy:
-
-  rules:
-    - if: $CI_COMMIT_BRANCH =~ /^master$/
-      variables:
-        CI_TMPL_ENVIRONMENT_NAME: prod
-        CI_TMPL_HELM_RELEASE_NAMES: "sgroups"
-
+build:
+  variables:
+    CI_TMPL_HELM_RELEASE_NAMES: "to-nft,sgroups"
