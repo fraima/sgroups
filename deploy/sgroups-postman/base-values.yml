@@ -9,3 +9,6 @@ image:
 
 env:
   HBF_HOST: sgroups
+
+job:
+  backoffLimit: 0
