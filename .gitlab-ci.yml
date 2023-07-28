@@ -49,7 +49,7 @@ generate deploy:
   rules:
     - if: $CI_COMMIT_BRANCH =~ /^dev$/
       variables:
-        CI_TMPL_HELM_RELEASE_NAMES: "sgroups,sgroups-postman@common-job"
+        CI_TMPL_HELM_RELEASE_NAMES: "postgres,sgroups,sgroups-postman@common-job"
 
     - if: $CI_COMMIT_BRANCH =~ /^master$/
       variables:

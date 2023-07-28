@@ -14,6 +14,10 @@ args:
   - --config
   - /config/config.yaml
 
+env:
+  HBF_HOST: sgroups
+  SG_STORAGE_POSTGRES_URL: postgres://nkiver:nkiver@postgres:5432/postgres?sslmode=disable
+  SG_STORAGE_TYPE: postgres
 
 ports:
   - name: grpc
