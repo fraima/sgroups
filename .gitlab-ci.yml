@@ -58,7 +58,7 @@ generate deploy:
 deploy:
   rules:
     - if: $CI_COMMIT_BRANCH =~ /^dev$/
-
+    - if: $CI_COMMIT_BRANCH =~ /^feature-.*$/
 
 test-sgroups-rest-postman:
   image:
