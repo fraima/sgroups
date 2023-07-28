@@ -16,3 +16,9 @@ ports:
   - name: postgres
     containerPort: 5432
     protocol: TCP
+
+service:
+  ports:
+    - port: 5432
+      name: postgres
+      targetPort: 5432
