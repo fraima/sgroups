@@ -8,7 +8,7 @@ image:
   pullPolicy: IfNotPresent
 
 env:
-  HBF_HOST: sgroups
+  HBF_HOST: sgroups{{ (split "sgroups-postman" Helm.Release.Name)_1 }}
 
 job:
   backoffLimit: 0
