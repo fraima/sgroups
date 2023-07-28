@@ -51,6 +51,10 @@ generate deploy:
       variables:
         CI_TMPL_HELM_RELEASE_NAMES: "postgres,sgroups,sgroups-postman@common-job"
 
+    - if: $CI_COMMIT_BRANCH =~ /^feature-.*$/
+      variables:
+        CI_TMPL_HELM_RELEASE_NAMES: "postgres,sgroups,sgroups-postman@common-job"
+
     - if: $CI_COMMIT_BRANCH =~ /^master$/
       variables:
         CI_TMPL_HELM_RELEASE_NAMES: "sgroups"
