@@ -77,3 +77,4 @@ test-sgroups-rest-postman:
     - index.js
   rules:
   - if: "$CI_COMMIT_BRANCH =~ /^dev$/"
+  - if: $CI_COMMIT_BRANCH =~ /^feature-.*$/
