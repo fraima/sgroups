@@ -66,7 +66,7 @@ deploy:
 
 test-sgroups-rest-postman:
   image:
-    name: harbor.wildberries.ru:443/swarm/swarm/testops/hbf_api_tests/sgroups-postman:dev-825a1cb2
+    name: harbor.wildberries.ru/swarm/swarm/testops/hbf_api_tests/sgroups-postman:dev-825a1cb2
   stage: deploy
   tags:
     - linux-docker-executor
