@@ -14,6 +14,10 @@ args:
   - --config
   - /config/config.yaml
 
+env:
+  SG_STORAGE_POSTGRES_URL: postgres://nkiver:nkiver@postgres{{ (split "sgroups" .Helm.Release.Name)._1  }}:5432/postgres?sslmode=disable
+  SG_STORAGE_TYPE: postgres
+
 ports:
   - name: grpc
     containerPort: 9006
