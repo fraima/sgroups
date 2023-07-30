@@ -1,4 +1,3 @@
-# https://gitlab.wildberries.ru/devops/ci/templates/-/blob/master/README.md
 .template_repo: &repo
   project: &ci_tmpl 'devops/ci/templates'
   ref: &ci_tmpl_vers 'v3.6.1'
@@ -36,11 +35,6 @@ include:
   - <<: *repo
     file: /pipelines/go.yml
 
-  # TODO собрать 
-  # - project: 'swarm/testops/hbf_api_tests'
-  #   ref: 'master'
-  #   file: /pipelines/postman.yml
-
 generate build:
   variables:
     CI_TMPL_HELM_RELEASE_NAMES: "sgroups,to-nft"
@@ -64,9 +58,9 @@ deploy:
     - if: $CI_COMMIT_BRANCH =~ /^dev$/
     - if: $CI_COMMIT_BRANCH =~ /^feature-.*$/
 
-test-sgroups-rest-postman:
+test-newman:
   image:
-    name: harbor.wildberries.ru/swarm/swarm/testops/hbf_api_tests/sgroups-postman:dev-825a1cb2
+    name: '$DEFAULT_REGISTRY/swarm/swarm/testops/hbf_api_tests/sgroups-postman:dev-825a1cb2'
   stage: deploy
   tags:
     - linux-docker-executor
