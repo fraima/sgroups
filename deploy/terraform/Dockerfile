@@ -16,7 +16,7 @@ ARG WB_MIRROR
 # install updates and build executable
 RUN apk upgrade --no-cache -X $WB_MIRROR/alpine/v${ALPINE_VER}/main && \
     apk add make && \
-    make sg-service
+    make sgroups-tf
 
 # second release stage
 FROM alpine:${ALPINE_VER}
@@ -37,4 +37,4 @@ COPY --from=builder --chown=app:app /src .
 # run container as new non-root user
 USER app
 
-CMD ["/app/bin/sgroups"]
+CMD ["/app/bin/terraform-provider-sgroups"]

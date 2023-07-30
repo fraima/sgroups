@@ -37,4 +37,4 @@ COPY --from=builder --chown=app:app /src/ .
 # run container as new non-root user
 USER app
 
-CMD ["/app/to-nft"]
+CMD ["/app/bin/to-nft"]

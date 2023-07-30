@@ -1,0 +1,10 @@
+postgres:
+  user: nkiver
+  password: nkiver
+  db: postgres
+  host: postgres{{ (split "sgroups" .Helm.Release.Name)._1  }}
+  port: 5432
+
+env:
+  SG_STORAGE_POSTGRES_URL: postgres://{{ .Values.postgres.user }}:{{ .Values.postgres.password }}@{{ .Values.postgres.host }}/{{ .Values.postgres.db }}?sslmode=disable
+  SG_STORAGE_TYPE: postgres
