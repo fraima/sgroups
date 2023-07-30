@@ -8,7 +8,7 @@ image:
   pullPolicy: IfNotPresent
 
 command:
-  - /app/sgroups
+  - /app/bin/sgroups
 
 args:
   - --config

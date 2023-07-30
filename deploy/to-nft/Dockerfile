@@ -32,7 +32,7 @@ RUN addgroup -g 101 app && \
 
 # place all necessary executables and other files into /app directory
 WORKDIR /app/
-COPY --from=builder --chown=app:app /src/bin .
+COPY --from=builder --chown=app:app /src/ .
 
 # run container as new non-root user
 USER app
